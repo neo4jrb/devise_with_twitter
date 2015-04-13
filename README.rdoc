@@ -1,28 +1,21 @@
-== README
+== 
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+== Setup:
 
-Things you may want to cover:
+=== Update `config/initializers/devise.rb`
 
-* Ruby version
+ * `config.mailer_sender`
 
-* System dependencies
+=== Make sure your mailer is configured:
 
-* Configuration
+    config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
 
-* Database creation
+=== If you are deploying on Heroku with Rails 3.2 only, you may want to set:
 
-* Database initialization
+    config.assets.initialize_on_precompile = false
 
-* How to run the test suite
+On `config/application.rb` forcing your application to not access the DB or load models when precompiling your assets.
 
-* Services (job queues, cache servers, search engines, etc.)
+=== You can copy Devise views (for customization) to your app by running
 
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+    rails g devise:views
